@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  softhsm:
+    image: 'ubuntu:20.04'
+    container_name: softhsm-container
+    volumes:
+      - ./tokens:/var/lib/softhsm/tokens
+    environment:
+      - SOFTHSM2_CONF=/etc/softhsm/softhsm2.conf
+    command: /bin/bash -c "apt-get update && apt-get install -y softhsm2 && softhsm2-util --init-token --slot 0 --label 'MyToken' --so-pin 1234 --pin 1234 && tail -f /dev/null"
+
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb-container
+    ports:
+      - '27017:27017'
+
+  sign-service:
+    build: .
+    container_name: sign-service-container
+    volumes:
+      - .:/usr/src/app
+    ports:
+      - '3000:3000'
+    depends_on:
+      - softhsm
+      - mongodb
+    environment:
+      - SOFTHSM2_CONF=/etc/softhsm/softhsm2.conf
+    command: node index.js
