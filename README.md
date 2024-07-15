@@ -19,8 +19,6 @@ Sign Service es un sistema para la firma electrónica avanzada de documentos uti
       - [Ejemplo de Solicitud](#ejemplo-de-solicitud-1)
       - [Ejemplo de Respuesta](#ejemplo-de-respuesta-1)
   - [Estructura del Proyecto](#estructura-del-proyecto)
-  - [Contribuciones](#contribuciones)
-  - [Licencia](#licencia)
 
 ## Instalación
 
@@ -139,16 +137,3 @@ sign-service/
 - `docker-compose.yml`: Configura y orquesta los servicios necesarios para el sistema.
 - `index.js`: Contiene la lógica del servidor y los endpoints de la API.
 - `package.json` y `package-lock.json`: Definen las dependencias del proyecto.
-
-## Contribuciones
-
-¡Las contribuciones son bienvenidas! Por favor, abre un issue o un pull request para discutir cambios o mejoras.
-
-## Licencia
-
-Este proyecto está licenciado bajo la Licencia MIT. Consulta el archivo `LICENSE` para más detalles.
-
-```
-
-Este README proporciona una guía completa sobre cómo instalar, configurar y usar tu sistema de firma electrónica avanzada. Incluye instrucciones detalladas sobre cómo registrar usuarios y firmar documentos, así como una descripción de la estructura del proyecto y cómo contribuir.
-```
